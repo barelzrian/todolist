@@ -13,15 +13,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // using the static files & express..
 app.use(express.static('public'));
 
+
+
+
 // connect mongoDB with mongoose
-// mongoose.connect('mongodb://localhost:27017/todolistDB', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// })
-mongoose.connect('mongodb+srv://<admin-barel>:<Test-123>@cluster0-3u9t8.mongodb.net/test?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect('mongodb+srv://barel:asas1313@cluster0-exb9v.azure.mongodb.net/test?retryWrites=true&w=majority', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+    // mongoose.connect('mongodb://localhost:27017/todolistDB', {
+    //     useNewUrlParser: true,
+    //     useUnifiedTopology: true
+    // })
 
 // new schema create of Items
 const itemsSchema = {
@@ -34,13 +37,13 @@ const Item = mongoose.model('Item', itemsSchema);
 
 // item creation
 const item1 = new Item({
-    name: "welcome to your todo list!"
+    name: "Welcome to your todo list!"
 })
 const item2 = new Item({
-    name: "hit the + button to add"
+    name: "Hit the ➕ button to add a new item"
 })
 const item3 = new Item({
-    name: "<---- hit here to delete"
+    name: "⬅ Hit here to delete an item ⬅"
 })
 
 // create array and push many to the db
@@ -145,22 +148,18 @@ app.post('/delete', (req, res) => {
 
 });
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
 
+// app.listen(port)
 
-// app.post('work', (req, res) => {
-//     let item = req.body.newItem;
-
-
-//     if (req.body.list === 'Work') {
-//         workItems.push(item);
-//         res.redirect('/work')
-
-//     } else {
-//         workItems.push(item);
-//         res.redirect('/')
-//     }
+// app.listen(port, () => {
+//     console.log("Server has Started successfuly")
 // })
 
-app.listen(3000, () => {
-    console.log("Server Started on port 3000!")
-})
+var server = app.listen(process.env.PORT || 5000, function() {
+    var port = server.address().port;
+    console.log("Express is working on port " + port);
+});
