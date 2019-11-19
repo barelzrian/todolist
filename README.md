@@ -1,6 +1,6 @@
 Welcome to the todo list wiki!
 
-![Todo List App](https://i.ibb.co/F7LmYpk/To-Do-List-App.png)
+![Todo List App](https://i.ibb.co/F7LmYpk/To-Do-List-App.png| width=100)
 
 Made it was really fun tho.
 
