@@ -17,7 +17,7 @@ app.use(express.static('public'));
 
 
 // connect mongoDB with mongoose
-mongoose.connect('mongodb+srv://barel:asas1313@cluster0-exb9v.azure.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://barel:asas1313@cluster0-exb9v.azure.mongodb.net/todolistDB', {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
